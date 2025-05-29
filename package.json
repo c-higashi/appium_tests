@@ -18,5 +18,8 @@
   "homepage": "https://github.com/c-higashi/appium_tests#readme",
   "devDependencies": {
     "webdriverio": "^9.14.0"
+  },
+  "dependencies": {
+    "chai": "^5.2.0"
   }
 }
