@@ -65,8 +65,8 @@ async function runTest() {
               console.log('ℹ️ Allow (notifications) button not found');
         }
 
-            // Pause to ensure transition
-            await driver.pause(3000);
+        // Pause to ensure transition
+        await driver.pause(3000);
 
         // Now find and click "Wait Times Show Schedule"
         try{
@@ -81,9 +81,10 @@ async function runTest() {
               console.log('ℹ️ Wait Times Show Schedule not found');
         }
 
-    // Optional assertion example
-    // const title = await driver.$('your-title-selector');
-    // expect(await title.getText()).to.equal('Expected Title');
+     const el = await driver.$('//android.widget.Button[contains(@content-desc, "Elmo\'s Little Drive")]');
+     const contentDesc = await el.getAttribute('content-desc');
+     // Assert it contains "min wait"
+     expect(contentDesc).to.include('min wait');
 
   } finally {
     await driver.pause(1000);
