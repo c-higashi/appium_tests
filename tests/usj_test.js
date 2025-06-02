@@ -20,10 +20,10 @@ async function runTest() {
   const driver = await remote(wdOpts);
 
   try {
-    // Pause to allow the app to load
+    // アプリ起動を確認
     await driver.pause(5000);
 
-    // Try to find the "Close" button and click it if visible
+    // 右上の”X"ボタンをクリック
     try {
         const closeButton = await driver.$('//android.widget.Button[@content-desc="Close"]');
       if (await closeButton.isDisplayed()) {
@@ -36,10 +36,10 @@ async function runTest() {
       console.log('ℹ️ Close button not found');
     }
 
-    // Pause to ensure transition
+    // 次の画面への移行を確認
     await driver.pause(5000);
 
-    //  Click While using the app
+    // "Click "While using the app" をクリック
     try{
     const allowButton = await driver.$('//android.widget.Button[@resource-id="com.android.permissioncontroller:id/permission_allow_foreground_only_button"]');
           if (await allowButton.isDisplayed()) {
@@ -52,7 +52,7 @@ async function runTest() {
           console.log('ℹ️ While using the app button not found');
         }
 
-        // Click Allow (notifications) button
+        // "Allow" をクリック
         try{
               const allowNotifications = await driver.$('//android.widget.Button[@resource-id="com.android.permissioncontroller:id/permission_allow_button"]');
               if (await allowNotifications.isDisplayed()) {
@@ -65,10 +65,10 @@ async function runTest() {
               console.log('ℹ️ Allow (notifications) button not found');
         }
 
-        // Pause to ensure transition
+        // 画面移行を確認
         await driver.pause(3000);
 
-        // Now find and click "Wait Times Show Schedule"
+        // "Wait Times Show Schedule"をクリック
         try{
               const waitTimesShowSchedule = await driver.$('//android.widget.Button[normalize-space(@content-desc) = "Wait Times Show Schedule"]');
               if (await waitTimesShowSchedule.isDisplayed()) {
@@ -81,6 +81,7 @@ async function runTest() {
               console.log('ℹ️ Wait Times Show Schedule not found');
         }
 
+     // ページの一番上に出てくるElmo's little driveに、min waitが表示されていることを確認
      const el = await driver.$('//android.widget.Button[contains(@content-desc, "Elmo\'s Little Drive")]');
      const contentDesc = await el.getAttribute('content-desc');
      // Assert it contains "min wait"
