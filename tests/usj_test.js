@@ -39,7 +39,7 @@ async function runTest() {
     // 次の画面への移行を確認
     await driver.pause(5000);
 
-    // "Click "While using the app" をクリック
+    // "While using the app" をクリック
     try{
     const allowButton = await driver.$('//android.widget.Button[@resource-id="com.android.permissioncontroller:id/permission_allow_foreground_only_button"]');
           if (await allowButton.isDisplayed()) {
@@ -52,7 +52,7 @@ async function runTest() {
           console.log('ℹ️ While using the app button not found');
         }
 
-        // "Allow" をクリック
+        // "Allow" (通知を) をクリック
         try{
               const allowNotifications = await driver.$('//android.widget.Button[@resource-id="com.android.permissioncontroller:id/permission_allow_button"]');
               if (await allowNotifications.isDisplayed()) {
@@ -81,7 +81,7 @@ async function runTest() {
               console.log('ℹ️ Wait Times Show Schedule not found');
         }
 
-     // ページの一番上に出てくるElmo's little driveに、min waitが表示されていることを確認
+     // ページの一番上に出てくる"Elmo's little drive"に、"min wait"が表示されていることを確認
      const el = await driver.$('//android.widget.Button[contains(@content-desc, "Elmo\'s Little Drive")]');
      const contentDesc = await el.getAttribute('content-desc');
      // Assert it contains "min wait"
