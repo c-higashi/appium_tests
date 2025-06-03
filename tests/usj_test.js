@@ -22,10 +22,18 @@ async function runTest() {
   try {
     // アプリ起動を確認
     await driver.pause(5000);
+//    //android.view.View[@resource-id="android:id/navigationBarBackground"]
+//   //android.widget.ImageView[@content-desc="Universal Studios Japan Logo"]
+    const navBarBackground = await driver.$('//android.view.View[@resource-id="android:id/navigationBarBackground"]');
+    await navBarBackground.waitForExist({ timeout: 60000 });
 
     // 右上の”X"ボタンをクリック
     try {
         const closeButton = await driver.$('//android.widget.Button[@content-desc="Close"]');
+    　　//Wi-fi上だと実行は早いですが、例えばMobileのテザリング上でテストを実行すると、アプリの起動に１分ほど
+       //かかるようです。
+        await closeButton.waitForDisplayed({ timeout: 50000 });
+
       if (await closeButton.isDisplayed()) {
         await closeButton.click();
         console.log('✅ Close button clicked');
@@ -41,13 +49,15 @@ async function runTest() {
 
     // "While using the app" をクリック
     try{
-    const allowButton = await driver.$('//android.widget.Button[@resource-id="com.android.permissioncontroller:id/permission_allow_foreground_only_button"]');
-          if (await allowButton.isDisplayed()) {
-            await allowButton.click();
-            console.log('✅ While using the app button clicked');
-          } else {
-            console.log('ℹ️ While using the app button not visible');
-          }
+      const allowButton = await driver.$('//android.widget.Button[@resource-id="com.android.permissioncontroller:id/permission_allow_foreground_only_button"]');
+      await allowButton.waitForDisplayed({ timeout: 50000 });
+
+      if (await allowButton.isDisplayed()) {
+        await allowButton.click();
+        console.log('✅ While using the app button clicked');
+      } else {
+        console.log('ℹ️ While using the app button not visible');
+      }
         } catch (err) {
           console.log('ℹ️ While using the app button not found');
         }
@@ -55,6 +65,8 @@ async function runTest() {
         // "Allow" (通知を) をクリック
         try{
               const allowNotifications = await driver.$('//android.widget.Button[@resource-id="com.android.permissioncontroller:id/permission_allow_button"]');
+              await allowNotifications.waitForDisplayed({ timeout: 50000 });
+
               if (await allowNotifications.isDisplayed()) {
                 await allowNotifications.click();
                 console.log('✅ Allow (notifications) button clicked');
@@ -71,6 +83,8 @@ async function runTest() {
         // "Wait Times Show Schedule"をクリック
         try{
               const waitTimesShowSchedule = await driver.$('//android.widget.Button[normalize-space(@content-desc) = "Wait Times Show Schedule"]');
+              await waitTimesShowSchedule.waitForDisplayed({ timeout: 50000 });
+
               if (await waitTimesShowSchedule.isDisplayed()) {
                 await waitTimesShowSchedule.click();
                 console.log('✅ Wait Times Show Schedule clicked');
