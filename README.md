@@ -25,7 +25,10 @@
 *  `appium` （ただテストを実行したい時）
 *  `appium --use-plugins=inspector --allow-cors` （テストを実行すると同時に、デバグの為などにAppium inspectorも使いたい時）
 
-2. コマンドラインの別のタブで`node tests/usj_test.js` を実行
+2. コマンドラインの別のタブで`node tests/usj_test.js` を実行すると、このようにテストが実行されます。
+   [▶ Download or watch video](https://github.com/c-higashi/appium_tests/blob/main/resources/test_execution.mov)
+
+
 
 # Appium inspectorの使い方
 1. コマンドラインで`appium --use-plugins=inspector --allow-cors`を実行
@@ -40,6 +43,9 @@
   "appium:noReset": true
 }
 ```
+ページ上では、こういう風になります。
+![Screenshot](resources/appium_inspector_config.png)
+
 * この設定でインスペクターページの右下の`Start Session`をクリックすると、ページの左側にアプリの最初のページが表示され、右側にそれぞれのUIエレメントのロケーターが表示されます。このページで、アプリの別のページに行ったりすることは、出来ません。
 * 別のページのロケーターを調べたい時は、上記のJSONの`appium:appActivity`の値を変える必要があります。この値の調べ方は、以下で説明します。
 
