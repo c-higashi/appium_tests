@@ -66,8 +66,9 @@ const capabilities = {
    ```
 2. Androidエミュレータでアプリを立ち上げます、この二つの値を調べたい画面まで進みます。
 3. コマンド`adb -s emulator-5556 shell dumpsys activity activities | grep "ResumedActivity"`を実行します。以下のようなアウトプットが出ます。
-`ResumedActivity: ActivityRecord{196591183 u0 com.universalstudios.japanresort/com.universalstudios.upr_japan.MainActivity t111}`
-
+   ```
+   ResumedActivity: ActivityRecord{196591183 u0 com.universalstudios.japanresort/com.universalstudios.upr_japan.MainActivity t111}
+   ```
 この場合、`appium:appPackage`の値が`com.universalstudios.japanresort`、`appium:appActivity`が`com.universalstudios.upr_japan.MainActivity`となります。
 
 # 今後の課題
