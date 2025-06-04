@@ -1,9 +1,10 @@
 # appium_tests
-これは、AppiumとJavaScriptを使った、USJのアンドロイドアプリ用の自動テストです。
+これは、AppiumとJavaScriptを使った、USJのアンドロイドアプリ用（英語版）の自動テストで、Wait Time Show Shceuleのページで、それぞれのライドの待ち時間が表示されているかを確認します。
 
 # 前提
-* USJのアプリは、Emulator上のAndroidに自動でインストールします。
+* USJのアプリは、Emulator上のAndroidに手動でインストールする必要があります。
 * テストは、Android Studioのエミュレータ上で実行されます。
+* テストコードは、`tests/usj_test.js`に書かれています。
 
 # インストール
 注：基本的には、[Appiumのオフィシャルドキュメンテーション](https://appium.io/docs/ja/latest/quickstart/install/) に沿って下さい。
@@ -17,7 +18,7 @@
 
 # 設定
 * Android Studioを立ち上げ、メニューのツール =>　デバイスマネージャーを開き、Androidの機種を選択。Android Studioの右手側に、Androidエミュレータが表示されます。
-* PlayStoreから、USJのアプリをインストール　 
+* PlayStoreから、USJのアプリをインストールします。
  
 # テスト実行
 1. コマンドラインで次のうち、どれかを実行
@@ -53,7 +54,7 @@ const capabilities = {
   'appium:appActivity': 'com.universalstudios.upr_japan.MainActivity',
 };
 ```
-`appium:appPackage`が起動するアプリで、`appium:appActivity`がどのページからかを定めます。この二つの値を調べるには、
+`appium:appPackage`が起動するアプリで、`appium:appActivity`がどのページからテストを開始するかを定めます。この二つの値を調べるには、
 1. コマンド`adb devices`を実行。以下のようにエミュレータが記載されます。
    ```
    List of devices attached
@@ -62,8 +63,12 @@ const capabilities = {
    ```
 2. Androidエミュレータでアプリを立ち上げます、この二つの値を調べたい画面まで進みます。
 3. コマンド`adb -s emulator-5556 shell dumpsys activity activities | grep "ResumedActivity"`を実行します。以下のようなアウトプットが出ます。
-   ```
-ResumedActivity: ActivityRecord{196591183 u0 com.universalstudios.japanresort/com.universalstudios.upr_japan.MainActivity t111}
-   ```
+`ResumedActivity: ActivityRecord{196591183 u0 com.universalstudios.japanresort/com.universalstudios.upr_japan.MainActivity t111}`
+
 この場合、`appium:appPackage`の値が`com.universalstudios.japanresort`、`appium:appActivity`が`com.universalstudios.upr_japan.MainActivity`となります。
+
+# 今後の課題
+1. テストの最初で言語を日本語に設定し、アプリを起動
+2. アサーションを日本語で実行
+
 
