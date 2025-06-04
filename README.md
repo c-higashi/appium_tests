@@ -41,7 +41,7 @@
 }
 ```
 ページ上では、こういう風になります。
-![Screenshot](resources/appium_inspector_config.png)
+![Screenshot](resources/appium_inspector.png)
 
 * この設定でインスペクターページの右下の`Start Session`をクリックすると、ページの左側にアプリの最初のページが表示され、右側にそれぞれのUIエレメントのロケーターが表示されます。このページで、アプリの別のページに行ったりすることは、出来ません。
 * 別のページのロケーターを調べたい時は、上記のJSONの`appium:appActivity`の値を変える必要があります。この値の調べ方は、以下で説明します。
