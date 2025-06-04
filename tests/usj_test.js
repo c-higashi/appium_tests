@@ -95,10 +95,9 @@ async function runTest() {
               console.log('ℹ️ Wait Times Show Schedule not found');
         }
 
-     // ページの一番上に出てくる"Elmo's little drive"に、"min wait"が表示されていることを確認
+     // ページに出てくる"Elmo's little drive"に、"min wait"が表示されていることを確認
      const el = await driver.$('//android.widget.Button[contains(@content-desc, "Elmo\'s Little Drive")]');
      const contentDesc = await el.getAttribute('content-desc');
-     // Assert it contains "min wait"
      expect(contentDesc).to.include('min wait');
 
   } finally {
