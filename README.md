@@ -1,5 +1,5 @@
-# appium_tests
-これは、AppiumとJavaScriptを使った、USJのアンドロイドアプリ用（英語版）の自動テストで、Wait Time Show Shceuleのページで、それぞれのライドの待ち時間が表示されているかを確認します。
+# USJアプリ用自動テスト
+これは、AppiumとJavaScriptを使ったUSJのアンドロイドアプリ用（英語版）の自動テストで、Wait Time Show Shceuleのページで、それぞれのライドの待ち時間が表示されているかを確認します。
 
 # 前提
 * USJのアプリは、Emulator上のAndroidに手動でインストールする必要があります。
@@ -16,7 +16,7 @@
 * アプリ上のUIロケーターを表示してくれるツール、Appium inspectorを、コマンド `appium plugin install --source=npm appium-inspector-plugin`を実行して、インストールします。
 * [Android Studioをインストール](https://developer.android.com/studio/install?hl=ja) します。
 
-# 設定
+# テスト環境
 * Android Studioを立ち上げ、メニューのツール =>　デバイスマネージャーを開き、Androidの機種を選択。Android Studioの右手側に、Androidエミュレータが表示されます。
 * PlayStoreから、USJのアプリをインストールします。
  
@@ -25,7 +25,7 @@
 *  `appium` （ただテストを実行したい時）
 *  `appium --use-plugins=inspector --allow-cors` （テストを実行すると同時に、デバグの為などにAppium inspectorも使いたい時）
 
-2. コマンドラインの別のタブで`node tests/usj_test.js` を実行します。
+2. ターミナルの別のタブで`node tests/usj_test.js` を実行します。
 
 # Appium inspectorの使い方
 1. コマンドラインで`appium --use-plugins=inspector --allow-cors`を実行
