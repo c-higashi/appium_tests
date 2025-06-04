@@ -21,7 +21,7 @@
 * PlayStoreから、USJのアプリをインストールします。
  
 # テスト実行
-1. コマンドラインで次のうち、どれかを実行
+1. コマンドラインで次のうち、どれかを実行し、Appiumを起動
 *  `appium` （ただテストを実行したい時）
 *  `appium --use-plugins=inspector --allow-cors` （テストを実行すると同時に、デバグの為などにAppium inspectorも使いたい時）
 
@@ -64,7 +64,7 @@ const capabilities = {
    emulator-5554	offline
    emulator-5556	device
    ```
-2. Androidエミュレータでアプリを立ち上げます、この二つの値を調べたい画面まで進みます。
+2. Androidエミュレータにてアプリを手動で立ち上げます、この二つの値を調べたい画面まで進みます。
 3. コマンド`adb -s emulator-5556 shell dumpsys activity activities | grep "ResumedActivity"`を実行します。以下のようなアウトプットが出ます。
    ```
    ResumedActivity: ActivityRecord{196591183 u0 com.universalstudios.japanresort/com.universalstudios.upr_japan.MainActivity t111}
