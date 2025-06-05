@@ -26,6 +26,8 @@
 *  `appium --use-plugins=inspector --allow-cors` （テストを実行すると同時に、デバグの為などにAppium inspectorも使いたい時）
 
 2. ターミナルの別のタブで`node tests/usj_test.js` を実行します。
+   ▶ [テスト実行時のビデオ](https://github.com/c-higashi/appium_tests/blob/2e342366d38e1e439008f3920c9216bdd5954c19/resources/test_execution.mp4)
+
 
 # Appium inspectorの使い方
 1. コマンドラインで`appium --use-plugins=inspector --allow-cors`を実行
