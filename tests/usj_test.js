@@ -21,7 +21,10 @@ async function runTest() {
 
   try {
     // アプリ起動を確認
+    // TODO - 現在このpause()なしではテストが失敗します。引き続き、代替メソッドを模索中
     await driver.pause(5000);
+
+    // NOTE: 下記のロケーターは、今後waitoForExist()などに使うかも知れないので、今のところ残しておきます。
 //    //android.view.View[@resource-id="android:id/navigationBarBackground"]
 //   //android.widget.ImageView[@content-desc="Universal Studios Japan Logo"]
     const navBarBackground = await driver.$('//android.view.View[@resource-id="android:id/navigationBarBackground"]');
@@ -45,6 +48,7 @@ async function runTest() {
     }
 
     // 次の画面への移行を確認
+    // TODO - 上記と同じ。代替メソッドを模索中
     await driver.pause(5000);
 
     // "While using the app" をクリック
@@ -78,6 +82,7 @@ async function runTest() {
         }
 
         // 画面移行を確認
+        // TODO - 上記と同じ。代替メソッドを模索中
         await driver.pause(3000);
 
         // "Wait Times Show Schedule"をクリック
