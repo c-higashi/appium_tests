@@ -1,4 +1,4 @@
-# Androidモバイルアプリ用自動テスト
+# Androidアプリ用自動テスト
 これは、AppiumとJavaScriptを使ったUniversal Studio Japan（これ以降はUSJと表記）のアンドロイドアプリ用（英語版）の自動テストです。Wait Time Show Shceuleのページで、それぞれのライドの待ち時間が表示されているかを確認します。
 
 # 前提
