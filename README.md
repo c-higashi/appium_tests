@@ -1,9 +1,9 @@
 # Androidモバイルアプリ用自動テスト
-これは、AppiumとJavaScriptを使ったUniversal Studio Japanのアンドロイドアプリ用（英語版）の自動テストで、Wait Time Show Shceuleのページで、それぞれのライドの待ち時間が表示されているかを確認します。
+これは、AppiumとJavaScriptを使ったUniversal Studio Japan（これ以降はUSJと表記）のアンドロイドアプリ用（英語版）の自動テストです。Wait Time Show Shceuleのページで、それぞれのライドの待ち時間が表示されているかを確認します。
 
 # 前提
 * USJのアプリは、Emulator上のAndroidに手動でインストールする必要があります。
-* テストは、Android Studioのエミュレータ上で実行されます。
+* テストは、Android Studioのエミュレータ上で、英語版のアプリに対して実行されます。
 * テストコードは、`tests/usj_test.js`に書かれています。
 
 # インストール
@@ -18,10 +18,10 @@
 
 # テスト環境
 * Android Studioを立ち上げ、メニューのツール =>　デバイスマネージャーを開き、Androidの機種を選択。Android Studioの右手側に、Androidエミュレータが表示されます。
-* PlayStoreから、USJのアプリをインストールします。
+* エミュレータ上のPlayStoreから、USJのアプリを手動でインストールします。
  
 # テスト実行
-1. コマンドラインで次のうち、どれかを実行し、Appiumを起動
+1. ターミナルで次のうちのどれかを実行し、Appiumを起動
 *  `appium` （ただテストを実行したい時）
 *  `appium --use-plugins=inspector --allow-cors` （テストを実行すると同時に、デバグの為などにAppium inspectorも使いたい時）
 
@@ -30,7 +30,7 @@
 
 
 # Appium inspectorの使い方
-1. コマンドラインで`appium --use-plugins=inspector --allow-cors`を実行
+1. ターミナルで`appium --use-plugins=inspector --allow-cors`を実行
 2. ブラウザでhttp://localhost:4723/inspector へアクセス。このUSJアプリのUIエレメントのロケーターを調べるためには、以下のJSONをお使い下さい。
 ```
 {
@@ -45,8 +45,8 @@
 ページ上では、こういう風になります。
 ![Screenshot](resources/appium_inspector.png)
 
-* この設定でインスペクターページの右下の`Start Session`をクリックすると、ページの左側にアプリの最初のページが表示され、右側にそれぞれのUIエレメントのロケーターが表示されます。このページで、アプリの別のページに行ったりすることは、出来ません。
-* 別のページのロケーターを調べたい時は、上記のJSONの`appium:appActivity`の値を変える必要があります。この値の調べ方は、以下で説明します。
+* この設定でページの右下の`Start Session`をクリックすると、ページの左側にアプリの最初のページが表示され、右側にそれぞれのUIエレメントのロケーターが表示されます。ここからアプリの別のページに行ったりすることは、出来ません。
+* 別の画面のロケーターを調べたい時は、上記のJSONの`appium:appActivity`の値を変える必要があります。この値の調べ方は、以下で説明します。
 
 # テストについて
 上記のJSONは、`tests/usj_test.js`のテストコードの最初の方にも以下のように出てきます。
@@ -76,5 +76,6 @@ const capabilities = {
 # 今後の課題
 1. テストの最初で言語を日本語に設定し、アプリを起動
 2. アサーションを日本語で実行
+3. `driver.pause()`を他の`waitForExist()`などのメソッドに変える
 
 
