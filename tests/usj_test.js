@@ -20,21 +20,21 @@ async function runTest() {
   const driver = await remote(wdOpts);
 
   try {
-    // アプリ起動を確認
-    // TODO - 現在このpause()なしではテストが失敗します。引き続き、代替メソッドを模索中
+    // TODO - The test currently fails without pause().  Need to figure out the alternative way
+    //        to ensure that the app is up.
     await driver.pause(5000);
 
-    // NOTE: 下記のロケーターは、今後waitoForExist()などに使うかも知れないので、今のところ残しておきます。
+    // NOTE: Leaving the following locators for now as they might be used for waitForExist().
     //  //android.view.View[@resource-id="android:id/navigationBarBackground"]
     //  //android.widget.ImageView[@content-desc="Universal Studios Japan Logo"]
     const navBarBackground = await driver.$('//android.view.View[@resource-id="android:id/navigationBarBackground"]');
     await navBarBackground.waitForExist({ timeout: 60000 });
 
-    // 右上の”X"ボタンをクリック
+    // Click the "X" on the upper right corner.
     try {
         const closeButton = await driver.$('//android.widget.Button[@content-desc="Close"]');
-    　　//Wi-fi上だと実行は早いですが、例えばMobileのテザリング上でテストを実行すると、アプリの起動に１分ほど
-       //かかるようです。
+       // The test currently passes on wi-fi, but it seems to take about a minute to start up the
+       // app on other networks, e.g. mobile tethering.
         await closeButton.waitForDisplayed({ timeout: 50000 });
 
       if (await closeButton.isDisplayed()) {
@@ -47,11 +47,11 @@ async function runTest() {
       console.log('ℹ️ Close button not found');
     }
 
-    // 次の画面への移行を確認
-    // TODO - 上記と同じ。代替メソッドを模索中
+    // Waiting for the next page to be loaded.
+    // TODO - Figure out alternative method, e.g., waitForExist().
     await driver.pause(5000);
 
-    // "While using the app" をクリック
+    // Click "While using the app".
     try{
       const allowButton = await driver.$('//android.widget.Button[@resource-id="com.android.permissioncontroller:id/permission_allow_foreground_only_button"]');
       await allowButton.waitForDisplayed({ timeout: 50000 });
@@ -66,7 +66,7 @@ async function runTest() {
           console.log('ℹ️ While using the app button not found');
     }
 
-    // "Allow" (通知を) をクリック
+    // Click "Allow" (notifications)
     try{
       const allowNotifications = await driver.$('//android.widget.Button[@resource-id="com.android.permissioncontroller:id/permission_allow_button"]');
       await allowNotifications.waitForDisplayed({ timeout: 50000 });
@@ -81,11 +81,11 @@ async function runTest() {
       console.log('ℹ️ Allow (notifications) button not found');
     }
 
-    // 画面移行を確認
-    // TODO - 上記と同じ。代替メソッドを模索中
+    // Waiting for the next page to be loaded.
+    // TODO - Figure out alternative method, e.g., waitForExist().
     await driver.pause(3000);
 
-    // "Wait Times Show Schedule"をクリック
+    // Click "Wait Times Show Schedule"
     try{
       const waitTimesShowSchedule = await driver.$('//android.widget.Button[normalize-space(@content-desc) = "Wait Times Show Schedule"]');
       await waitTimesShowSchedule.waitForDisplayed({ timeout: 50000 });
@@ -100,7 +100,7 @@ async function runTest() {
       console.log('ℹ️ Wait Times Show Schedule not found');
     }
 
-    // ページに出てくる"Elmo's little drive"に、"min wait"が表示されていることを確認
+    // Verify that "Elmo's little drive" has "min wait".
     const el = await driver.$('//android.widget.Button[contains(@content-desc, "Elmo\'s Little Drive")]');
     const contentDesc = await el.getAttribute('content-desc');
     expect(contentDesc).to.include('min wait');
