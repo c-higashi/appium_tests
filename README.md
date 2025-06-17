@@ -46,7 +46,7 @@ Start up Android Studio and do the following:
 You should see something like this on your web browser:
 ![Screenshot](resources/appium_inspector.png)
 
-* When you click `Start Session` on the bottom right corner, the app's first page will be shown on the left side, and the locators for the UI elements on the page will be shown on the right side.  The app's page here is not interactive.  If you want to look up the locators for other pages, you need to change the value for `appium:appActivity`.
+* When you click **Start Session** on the bottom right corner, the app's first page will be shown on the left side, and the locators for the UI elements on the page will be shown on the right side.  The app's page here is not interactive.  If you want to look up the locators for other pages, you need to change the value for `appium:appActivity`.
 
 # Explanation about the test
 The JSON above is also in the test file `tests/usj_test.js` as following:
@@ -58,6 +58,7 @@ const capabilities = {
   'appium:appPackage': 'com.universalstudios.japanresort',
   'appium:appActivity': 'com.universalstudios.upr_japan.MainActivity',
 };
+```
 `appium:appPackage` shows the app to launch, and `appium:appActivity` shows which page to open when the test starts up.  In order to look up the values for these two properties,
 1. Execute `adb devices` on the terminal.  Available emulators will be returned as following:
 ```
