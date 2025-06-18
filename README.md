@@ -27,7 +27,7 @@ Following are some additional steps you need to take (which are not quite covere
 Start up Android Studio and do the following:
 1. On the menu go to Tool => Device Manager.
 2. Select the Android model that you'd like to run the tests against.  Android emulator will appear on the right side of Android Studio.
-3. Manually install the USJ app from PlayStore on the emulator
+3. Manually install the USJ app from PlayStore on the emulator.
 
 # Test Execution
 1. On terminal execute one of the following commands to start Appium:
@@ -36,7 +36,7 @@ Start up Android Studio and do the following:
 2. Open up another tab on the terminal, and run `node tests/usj_test.js`.
 
 # How to use Appium inspector
-1. On ther terminal, execute `appium --use-plugins=inspector --allow-cors`.
+1. On the terminal, execute `appium --use-plugins=inspector --allow-cors`.
 2. Access http://localhost:4723/inspector on a web browser.  You can use the following JSON in order to look up the UI elements of the USJ app's first page:
    ```
    {
@@ -64,7 +64,7 @@ const capabilities = {
   'appium:appActivity': 'com.universalstudios.upr_japan.MainActivity',
 };
 ```
-`appium:appPackage` shows the app to launch, and `appium:appActivity` shows which page to open when the test starts up.  In order to look up the values for these two properties,
+`appium:appPackage` is the app to launch, and `appium:appActivity` is which page to open when the test starts up.  In order to look up the values for these two properties,
 1. Execute `adb devices` on the terminal.  Available emulators will be returned as following:
 ```
    List of devices attached
