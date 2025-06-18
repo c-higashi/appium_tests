@@ -16,8 +16,8 @@ Following are some additional steps you need to take (which are not quite covere
 * Install the Appium driver for Android by executing `appium driver install uiautomator2`.
 * Create a project folder.
    1. CD into the folder.
-   2. Run `npm init -y` (this will create package.json and package-config.json).
-   3. Run `npm install --save-dev @wdio/cli`
+   2. Run `npm init -y`.
+   3. Run `npm install --save-dev @wdio/cli`.
    4. Run `npx wdio config`.
 * Install the Assertion library [Chai](https://www.chaijs.com/) by executing `npm instal chai`.
 * In order to look up the UI locators on the app, install Appium Inspector by executing  `appium plugin install --source=npm appium-inspector-plugin`.
