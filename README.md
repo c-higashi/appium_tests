@@ -14,6 +14,11 @@ Following are some additional steps you need to take (which are not quite covere
 * Install node by executing `brew install node` on the command line.
 * Install Appium by executing `sudo npm install -g appium`.
 * Install the Appium driver for Android by executing `appium driver install uiautomator2`.
+* Create a project folder.
+   1. CD into the folder.
+   2. Run `npm init -y` (this will create package.json and package-config.json).
+   3. Run `npm install --save-dev @wdio/cli`
+   4. Run `npx wdio config`.
 * Install the Assertion library [Chai](https://www.chaijs.com/) by executing `npm instal chai`.
 * In order to look up the UI locators on the app, install Appium Inspector by executing  `appium plugin install --source=npm appium-inspector-plugin`.
 * [In stall Android Studio](https://developer.android.com/studio?gad_source=1&gad_campaignid=21831783525&gbraid=0AAAAAC-IOZkJYSDVzOOH-iUrP3ksxf12R&gclid=CjwKCAjwpMTCBhA-EiwA_-MsmWLeDRJSOm1xcrIP4FYRRmRfPkOWtQLL_8w9b83ZRGeJZ1PePM6vORoCV2kQAvD_BwE&gclsrc=aw.ds)
@@ -75,4 +80,5 @@ In this case `com.universalstudios.japanresort` is the value for `appium:appPack
 
 # TODO
 * Replace `driver.pause()` with other methods like `waitForExist()`.
+* Make use of the Page Object Model.
 
