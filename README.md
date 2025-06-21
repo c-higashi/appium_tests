@@ -4,6 +4,9 @@ JavaScript. The app displays the wait times for each ride, and the test is desig
 this information appears correctly.  Currently, the test is written for the English version of 
 the app and ensures that wait times are displayed as expected for each ride.
 
+# Note
+While attempting to write this test using Appium and JavaScript, I found it challenging to locate comprehensive documentation outlining the necessary installations and configuration steps. My hope is that this README serves as a clear, one-stop resource for anyone looking to get started with writing automated tests using Appium.
+
 # Pre-requisite
 * The app needs to be manually installed on the Android Emulator.
 
